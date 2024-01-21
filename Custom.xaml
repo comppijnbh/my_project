@@ -137,7 +137,7 @@
                </Grid.ColumnDefinitions>
                <local:MyButton Grid.Column="0" Margin="0,0,10,0" Height="35" Text="关于作者" EventType="弹出窗口" 
                     EventData="关于作者|我是19106，一个妄图写出完美代码的程序员，该主页目前由我独立完成|欢迎你使用该主页"/>
-               <local:MyButton Grid.Column="1" Margin="0,0,0,0" Height="35" Text="项目仓库" EventType="打开网页" EventData="https://github.com/MFn233/PCL-Mainpage"/>
+               <local:MyButton Grid.Column="1" Margin="0,0,0,0" Height="35" Text="项目仓库" EventType="打开网页" https://github.com/comppijnbh/my_project"/>
           </Grid>
           <Grid>
                <Grid.ColumnDefinitions>
