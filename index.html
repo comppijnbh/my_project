@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="en">  
+<html lang="zh-CN">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Login</title>  
+<title>登录</title>  
 <style>  
     body {  
         font-family: Arial, sans-serif;  
@@ -66,18 +66,18 @@
 <body>  
   
 <div class="login-container">  
-    <h2>Login</h2>  
+    <h2>登录</h2>  
     <form id="loginForm">  
         <div class="form-group">  
-            <label for="username">Username:</label>  
+            <label for="username">用户名:</label>  
             <input type="text" id="username" name="username" required>  
         </div>  
         <div class="form-group">  
-            <label for="password">Password:</label>  
+            <label for="password">密码:</label>  
             <input type="password" id="password" name="password" required>  
         </div>  
         <div class="form-group">  
-            <button type="submit" class="login-btn">Login</button>  
+            <button type="submit" class="login-btn">登录</button>  
         </div>  
         <div class="error" id="error"></div>  
     </form>  
@@ -85,21 +85,21 @@
   
 <script>  
     document.getElementById('loginForm').addEventListener('submit', function(event) {  
-        event.preventDefault(); // Prevent form submission  
+        event.preventDefault(); // 阻止表单提交  
         var username = document.getElementById('username').value;  
         var password = document.getElementById('password').value;  
         var errorDiv = document.getElementById('error');  
           
-        // Perform login validation or API call here  
-        // For demonstration, we'll just check if the fields are not empty  
+        // 在这里进行登录验证或发送API请求  
+        // 为了演示，我们只检查用户名和密码是否为空  
         if (username === '' || password === '') {  
-            errorDiv.textContent = 'Please fill in both username and password.';  
+            errorDiv.textContent = '请填写用户名和密码。';  
         } else {  
-            errorDiv.textContent = ''; // Clear any previous error message  
-            // TODO: Send the credentials to the server for authentication  
-            // and handle the response accordingly  
-            alert('Login successful! Redirecting...');  
-            // Redirect to the protected page or perform other actions  
+            errorDiv.textContent = ''; // 清除之前的错误信息  
+            // TODO: 将凭据发送到服务器进行身份验证  
+            // 并根据服务器的响应进行相应的处理  
+            alert('登录成功！正在跳转...');  
+            // 重定向到受保护的页面或执行其他操作  
         }  
     });  
 </script>  
