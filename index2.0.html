@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暖色调简易论坛</title>
+    <style>
+        /* 暖色调基础样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5deb3; /* 浅黄色背景 */
+            color: #333; /* 文字颜色 */
+        }
+
+        header {
+    background-color: #e9c46a; /* 深黄色头部 */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* 将元素分散到两端 */
+    align-items: center; /* 垂直居中元素 */
+}
+
+header h1 {
+    color: #fff; /* 标题颜色 */
+    margin: 0; /* 移除默认的margin */
+    flex: 1; /* 让标题占据剩余空间，将登录链接推到右侧 */
+    text-align: center; /* 水平居中标题文本 */
+}
+
+header .login-link {
+    color: #fff; /* 登录链接颜色 */
+    text-decoration: none; /* 移除下划线 */
+    /* 可以添加其他样式，如字体粗细、鼠标悬停效果等 */
+}
+
+        nav {
+            background-color: #f9e79f; /* 浅橙色导航 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent; /* 透明下划线，用于鼠标悬停效果 */
+        }
+
+        nav ul li a:hover {
+            border-bottom-color: #e9c46a; /* 鼠标悬停时下划线颜色 */
+        }
+
+        main {
+            margin: 20px;
+        }
+
+        .post {
+            background-color: #fff; /* 帖子背景色 */
+            padding: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+        }
+
+        .post-title {
+            color: #e9c46a; /* 帖子标题颜色 */
+        }
+
+        .post-content {
+            color: #666; /* 帖子内容颜色 */
+        }
+        .post-author {
+            color: #666; /* 帖子内容颜色 */
+        }
+        a {
+    text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index2.0.html">主页</a>
+    <h1>开发者宣告</h1>
+    <a href="tttoindex.html">登录/注册</a>
+</header>
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">帖子</a></li>
+            <li><a href="#">用户</a></li>
+            <li><a href="#">关于</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <a href="kfzxg.html"><div class="post">
+            <a href="kfzxg.html"><h2 class="post-title">xmcl工作室</h2></a>
+            <a href="kfzxg.html"><p class="post-author">作者：xmcl的各个开发者们</p></a>
+            <a href="kfzxg.html"><p class="post-content">我们好像没有开发者...</p></a>
+
+
+        </div></a>
+        <div class="post">
+            <h2 class="post-title">工作室创立者的宣言</h2>
+            <p class="post-author">作者：性邓的小馒头</p>
+            <p class="post-content">感谢支持啦，我们的实名认证审核好像还没通过...</p>
+        </div>
+        <!-- 更多的帖子可以复制上面的 .post 结构 -->
+    </main>
+</body>
+</html>
