@@ -4,7 +4,7 @@
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Document</title>  
-  <style>  
+  <style>
     :root {
       /* COLORS */
       --white: #e9e9e9;
@@ -271,7 +271,30 @@
         font-size: 20px;
         font-weight: bold;
     }
-  </style>  
+    window.onload = function() {
+    var form = document.getElementById('loginForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // 阻止表单提交默认行为
+        var adminNumber = document.getElementById('adminNumber').value;
+        var adminKey = document.getElementById('adminKey').value;
+        var adminPassword = document.getElementById('adminPassword').value;
+
+        // 验证输入
+        if (adminNumber === '1123' && adminKey === '1234' && adminPassword === '11234') {
+            alert('登陆成功');
+            // 这里可以添加其他登录成功后的操作，比如跳转到另一个页面
+        } else {
+            alert('登录失败，请检查您的管理员号、密钥或密码。');
+        }
+
+        // 清空输入框
+        document.getElementById('adminNumber').value = '';
+        document.getElementById('adminKey').value = '';
+        document.getElementById('adminPassword').value = '';
+    });
+};
+  </style>
+
 </head>  
   
 <body>
@@ -289,9 +312,9 @@
     <div>
       <form action="#" class="form" id="form1">  
         <h2 class="form__title">后台</h2>
-        <input type="text" placeholder="管理员号" class="input" />
-        <input type="pw" placeholder="四位管理员密钥(每5分钟刷新一次)" class="input" />
-        <input type="password" id="adminPassword" placeholder="管理员号密码" class="input" />
+        <input type="text" id="adminNumber" placeholder="管理员号" class="input" required />
+        <input type="password" id="adminKey" placeholder="四位管理员密钥(每5分钟刷新一次)" class="input" required />
+        <input type="password" id="adminPassword" placeholder="管理员号密码" class="input" required />
 
 <script>
 // 获取input元素
@@ -308,7 +331,7 @@ passwordInput.addEventListener('input', function() {
     // 你可以在这里对password变量进行进一步的处理，比如验证、存储等
 });
 </script>
-        <button class="btn" id="showPopupBtn">验证信息(第一次按会刷新)</button>
+        <button class="btn" id="showPopupBtn" type="submit">验证信息(第一次按会刷新)</button>
       </form>
 
     </div>

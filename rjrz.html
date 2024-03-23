@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人机验证示例</title>
+    <style>
+        #captcha {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            color: #333;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>人机验证示例</h1>
+    <p>请输入以下验证码：</p>
+    <div id="captcha">ABCDEF</div>
+    <input type="text" id="userInput" placeholder="在此输入验证码">
+    <button onclick="verifyCaptcha()">提交</button>
+
+    <script>
+        function verifyCaptcha() {
+            const captchaText = document.getElementById('captcha').textContent;
+            const userInput = document.getElementById('userInput').value;
+
+            if (userInput === captchaText) {
+                alert('验证码正确！');
+            } else {
+                alert('验证码错误，请重试。');
+                // 在这里，你可以添加逻辑来重新生成新的验证码
+            }
+        }
+    </script>
+</body>
+</html>
