@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简易圆角提示弹窗</title>
+<style>
+    .popup {
+        display: none; /* 默认隐藏弹窗 */
+        position: fixed; /* 固定位置 */
+        top: -100px; /* 初始位置在屏幕上方之外 */
+        left: 50%;
+        transform: translateX(-50%); /* 水平居中 */
+        width: 200px; /* 弹窗宽度 */
+        padding: 20px;
+        background-color: #fff; /* 背景色 */
+        border-radius: 10px; /* 圆角 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+        z-index: 1000; /* 确保弹窗在其它元素之上 */
+        overflow: hidden; /* 隐藏超出部分 */
+        transition: top 0.3s ease-out; /* 动画效果 */
+    }
+
+    .popup-content {
+        text-align: center; /* 文本居中 */
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<!-- 触发提示弹窗的按钮 -->
+<button id="showPopupBtn">显示提示弹窗</button>
+
+<!-- 弹窗内容 -->
+<div id="myPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>这是一个带有圆角的提示弹窗！</p>
+    </div>
+</div>
+
+<script>
+function showPopup() {
+    var popup = document.getElementById("myPopup");
+    popup.style.display = "block"; // 显示弹窗
+    popup.style.top = "200px"; // 将弹窗滑下至可见位置
+}
+
+function closePopup() {
+    var popup = document.getElementById("myPopup");
+    popup.style.top = "-125px"; // 将弹窗滑上至隐藏位置
+    closePopup()
+}
+
+
+// 点击按钮显示弹窗
+document.getElementById("showPopupBtn").addEventListener("click", showPopup);
+
+// 点击弹窗外部时关闭弹窗
+window.addEventListener("click", function(event) {
+    var popup = document.getElementById("myPopup");
+    if (event.target === popup) {
+        closePopup();
+    }
+});
+</script>
+
+</body>
+</html>

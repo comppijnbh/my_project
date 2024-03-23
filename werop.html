@@ -40,8 +40,8 @@
     }
 
     header {
-        background-color: #1000;
-        color: black;
+        background-color: #FF0000;
+        color: white;
         padding: 10px;
         text-align: center;
     }
@@ -119,7 +119,7 @@
 
     .overlay {
       background-color: var(--lightblue);
-      background: url("https://bpic.588ku.com/back_our/20201217/bg/89f905f39bc07.png");
+      background: url("");
       background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
@@ -236,18 +236,47 @@
       text-decoration: none;  
       color: inherit;  
       font-size: 1rem;  
-      background-color: var(--blue);  
+      background-color: red;
       border: none;  
       padding: 0.5rem 1rem;  
       border-radius: 5px;  
       cursor: pointer;  
-    }  
+    }
+
+    .popup {
+        display: none; /* 默认隐藏弹窗 */
+        position: fixed; /* 固定位置 */
+        top: -100px; /* 初始位置在屏幕上方之外 */
+        left: 50%;
+        transform: translateX(-50%); /* 水平居中 */
+        width: 200px; /* 弹窗宽度 */
+        padding: 20px;
+        background-color: #fff; /* 背景色 */
+        border-radius: 10px; /* 圆角 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+        z-index: 1000; /* 确保弹窗在其它元素之上 */
+        overflow: hidden; /* 隐藏超出部分 */
+        transition: top 0.3s ease-out; /* 动画效果 */
+    }
+
+    .popup-content {
+        text-align: center; /* 文本居中 */
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+    }
   </style>  
 </head>  
   
 <body>
 <header>
-        <h1>***登录界面***</h1>
+        <h1>管理员界面</h1>
         <script>
               // 添加返回按钮并设置其点击事件
     const backButton = document.createElement('a'); // 创建<a>元素
@@ -257,42 +286,73 @@
     document.body.insertBefore(backButton, document.body.firstChild); // 将按钮插入到<body>的开头
           </script>
 </header>
-  <div class="container right-panel-active">  
-    <!-- Sign Up -->  
-    <div class="container__form container--signup">  
+    <div>
       <form action="#" class="form" id="form1">  
-        <h2 class="form__title">注册</h2>  
-        <input type="text" placeholder="用户名" class="input" />  
-        <input type="email" placeholder="邮箱" class="input" />  
-        <input type="password" placeholder="密码" class="input" />  
-        <button class="btn">注 册</button>  
-      </form>  
-    </div>  
-  
-    <!-- Sign In -->  
-    <div class="container__form container--signin">  
-      <form action="#" class="form" id="form2">  
-        <h2 class="form__title">登录</h2>  
-        <input type="email" placeholder="邮箱" class="input" />  
-        <input type="password" placeholder="密码" class="input" />  
-        <a href="#" class="link">忘记密码？</a>  
-        <button class="btn">登 录</button>
-      </form>  
-    </div>  
+        <h2 class="form__title">后台</h2>
+        <input type="text" placeholder="管理员号" class="input" />
+        <input type="pw" placeholder="四位管理员密钥(每5分钟刷新一次)" class="input" />
+        <input type="password" id="adminPassword" placeholder="管理员号密码" class="input" />
+
+<script>
+// 获取input元素
+var passwordInput = document.getElementById('adminPassword');
+
+// 监听input元素的input事件
+passwordInput.addEventListener('input', function() {
+    // 获取用户输入的密码值
+    var password = this.value;
+
+    // 现在，变量password包含了用户输入的密码
+    console.log('用户输入的密码是:', password);
+
+    // 你可以在这里对password变量进行进一步的处理，比如验证、存储等
+});
+</script>
+        <button class="btn" id="showPopupBtn">验证信息(第一次按会刷新)</button>
+      </form>
+
+    </div>
+
+    <!-- Sign In -->
+
   
     <!-- Overlay -->  
-    <div class="container__overlay">  
-      <div class="overlay">  
-        <div class="overlay__panel overlay--left">  
-          <button class="btn" id="signIn">←登 录</button>  
-        </div>  
-        <div class="overlay__panel overlay--right">  
-          <button class="btn" id="signUp">注 册→</button>
-        </div>  
-      </div>  
-    </div>  
-  </div>  
-  
+
+<div id="myPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>验证失败！</p>
+        <p>No administrator found</p>
+        <p>对照翻译：没有这个管理员</p>
+    </div>
+</div>
+
+<script>
+function showPopup() {
+    var popup = document.getElementById("myPopup");
+
+    popup.style.top = "200px"; // 将弹窗滑下至可见位置
+    popup.style.display = "block"; // 显示弹窗
+}
+
+function closePopup() {
+    var popup = document.getElementById("myPopup");
+    popup.style.top = "-225px"; // 将弹窗滑上至隐藏位置
+    closePopup()
+}
+
+
+// 点击按钮显示弹窗
+document.getElementById("showPopupBtn").addEventListener("click", showPopup);
+
+// 点击弹窗外部时关闭弹窗
+window.addEventListener("click", function(event) {
+    var popup = document.getElementById("myPopup");
+    if (event.target === popup) {
+        closePopup();
+    }
+});
+</script>
   <script>  
     const signInBtn = document.getElementById("signIn");  
     const signUpBtn = document.getElementById("signUp");  
@@ -312,7 +372,8 @@
     secondForm.addEventListener("submit", (e) => e.preventDefault());  
   
 
-  </script>  
+  </script>
+
 </body>  
   
 </html>
