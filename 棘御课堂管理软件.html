@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Window</title>
+</head>
+<body>
+    <button onclick="showWindow()">Show Window</button>
+    <button onclick="hideWindow()">Hide Window</button>
+
+    <script>
+        function showWindow() {
+            // 使用fetch或XMLHttpRequest发送命令到服务器
+            fetch('http://localhost:12345/show', { method: 'POST' })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
+        }
+
+        function hideWindow() {
+            // 类似地发送'hide'命令
+            fetch('http://localhost:12345/hide', { method: 'POST' })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
